@@ -1,0 +1,16 @@
+{
+  "name": "gdi_js201_project_files",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GDI JavaScript 201 Project Files",
+  "main": "scripts.js",
+  "author": "Tamara Temple <tamouse@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.11",
+    "package.json": "^2.0.1"
+  },
+  "scripts": {
+    "start": "browser-sync start --server . --port 8888 --files counter.css index.html scripts.js"
+  }
+}

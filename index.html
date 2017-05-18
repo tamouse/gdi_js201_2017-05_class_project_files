@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head><title>GDI - Intermediate JS</title></head>
-<body>
-    This is my awesome page!
-</body>
+    <head>
+        <!-- add in the viewport to make it look good when shrunk -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GDI - Intermediate JS</title>
+        <link rel="stylesheet" href="counter.css">
+    </head>
+    <body class="counter"> <!-- this could be a wrapper, but there's
+                                nothing elese on the page  -->
+
+        <!-- a row for the counter buttons -->
+        <div class="row">
+            <button class="button" id="add">+</button>
+            <button class="button" id="sub">-</button>
+
+            <!-- a reset button to clear the counter quickly -->
+            <button class="button" id="reset">c</button>
+        </div>
+
+        <!-- a row for the result container -->
+        <div class="row">
+            <div class="result" id="result"></div>
+        </div>
+        <script src="scripts.js"></script>
+    </body>
 </html>
