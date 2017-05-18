@@ -1,42 +1,47 @@
-const d=document;               // just a shorthand
-const bounceTime = 300;         // how long to keep the changing class on the result
+const Counter = (function(d, bounceTime){
 
-const result=d.getElementById('result');
-
-function operate(evt) {
-  var operator = this.getAttribute('data-op');
-  if (operator === '0') {
-    clearResults();
-  } else {
-    changeResult(parseInt(operator + "1"));
+  function result(){
+    return d.querySelector('[rel=result]');
   }
-}
 
-// Add the changing class, then take it away after a moment
-function bounceResult() {
-  result.classList.add('changing');
-  setTimeout(function(){result.classList.remove('changing')}, bounceTime);
-}
+  function operate(evt) {
+    var operator = this.getAttribute('data-op');
+    if (operator === '0') {
+      clearResults();
+    } else {
+      changeResult(parseInt(operator + "1"));
+    }
+  }
 
-// clear the result display
-function clearResults(){
-  bounceResult();
-  result.innerHTML = '';
-}
+  // Add the changing class, then take it away after a moment
+  function bounceResult() {
+    result().classList.add('changing');
+    setTimeout(function(){result().classList.remove('changing')}, bounceTime);
+  }
 
-// change the result by the value passed in
-function changeResult(by){
-  bounceResult();
+  // clear the result display
+  function clearResults(){
+    bounceResult();
+    result().innerHTML = '';
+  }
 
-  // using .textContent here, since the result could contain more HTML
-  // also, multiplying the value by 1 forces it to convert to an integer.
-  // this works if the textContent is empty, too
-  result.textContent = by + result.textContent*1;
-}
+  // change the result by the value passed in
+  function changeResult(by){
+    bounceResult();
 
-// Add the operate event handler to all the buttons
-// Using querySelectorAll so we have the forEach method
-d.querySelectorAll('button')
-  .forEach(function(el){
-    el.addEventListener('click', operate);
-  });
+    // using .textContent here, since the result could contain more HTML
+    // also, multiplying the value by 1 forces it to convert to an integer.
+    // this works if the textContent is empty, too
+    result().textContent = by + result().textContent*1;
+  }
+
+  // Add the operate event handler to all the buttons
+  // Using querySelectorAll so we have the forEach method
+  d.querySelectorAll('button')
+    .forEach(function(el){
+      el.addEventListener('click', operate);
+    });
+
+  return {};
+
+})(document, 300);

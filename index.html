@@ -5,22 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GDI - Intermediate JS</title>
         <link rel="stylesheet" href="counter.css">
+        <script src="https://use.fontawesome.com/90a31ec13c.js"></script>
     </head>
     <body class="counter"> <!-- this could be a wrapper, but there's
                                 nothing elese on the page  -->
 
         <!-- a row for the counter buttons -->
         <div class="row">
-            <button class="button" data-op="+">+</button>
-            <button class="button" data-op="-">-</button>
+            <button class="button" data-op="+"><i class="fa fa-plus"></i></button>
+            <button class="button" data-op="-"><i class="fa fa-minus"></i></button>
 
             <!-- a reset button to clear the counter quickly -->
-            <button class="button" data-op="0">c</button>
+            <button class="button" data-op="0"><i class="fa fa-ban"></i></button>
         </div>
 
         <!-- a row for the result container -->
         <div class="row">
-            <div class="result" id="result"></div>
+            <div class="result" rel="result"></div>
         </div>
         <script src="scripts.js"></script>
     </body>
