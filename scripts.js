@@ -1,17 +1,16 @@
-
+const d=document;               // just a shorthand
 const bounceTime = 300;         // how long to keep the changing class on the result
 
+const result=d.getElementById('result');
 
-const d=document;               // just a shorthand
-
-// Grab the various parts that we'll work with.
-// These should be constants because we're not changing these elements
-const addBtn=d.getElementById('add');
-const subBtn=d.getElementById('sub');
-const resetBtn=d.getElementById('reset');
-
-// This can be a const as well
-var result=d.getElementById('result');
+function operate(evt) {
+  var operator = this.getAttribute('data-op');
+  if (operator === '0') {
+    clearResults();
+  } else {
+    changeResult(parseInt(operator + "1"));
+  }
+}
 
 // Add the changing class, then take it away after a moment
 function bounceResult() {
@@ -35,7 +34,9 @@ function changeResult(by){
   result.textContent = by + result.textContent*1;
 }
 
-// add the event listers to activate the counter
-addBtn.addEventListener('click', function(){changeResult(+1)});
-subBtn.addEventListener('click', function(){changeResult(-1)});
-resetBtn.addEventListener('click', function(){clearResults()});
+// Add the operate event handler to all the buttons
+// Using querySelectorAll so we have the forEach method
+d.querySelectorAll('button')
+  .forEach(function(el){
+    el.addEventListener('click', operate);
+  });
