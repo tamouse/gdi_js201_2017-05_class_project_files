@@ -5,7 +5,7 @@ html, body {
     height: 100%;
     font-size: 100pt;
     font-family: sans-serif;
-    width: 60%;
+    width: 80%;
     margin: auto;
 }
 
@@ -32,7 +32,7 @@ html, body {
 .button {
     background-color:#2a4758;
     color:#fff;
-    font-size:60pt;
+    font-size:40pt;
     width:120px;
     height: 120px;
     outline:0;

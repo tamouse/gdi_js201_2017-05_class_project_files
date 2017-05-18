@@ -12,11 +12,12 @@
 
         <!-- a row for the counter buttons -->
         <div class="row">
-            <button class="button" data-op="+"><i class="fa fa-plus"></i></button>
-            <button class="button" data-op="-"><i class="fa fa-minus"></i></button>
-
+            <button class="button" data-op="+" data-inc="10"><i class="fa fa-plus"></i><i class="fa fa-plus"></i></button>
+            <button class="button" data-op="+" data-inc="1"><i class="fa fa-plus"></i></button>
             <!-- a reset button to clear the counter quickly -->
-            <button class="button" data-op="0"><i class="fa fa-ban"></i></button>
+            <button class="button" data-op="*" data-inc="0"><i class="fa fa-ban"></i></button>
+            <button class="button" data-op="-" data-inc="1"><i class="fa fa-minus"></i></button>
+            <button class="button" data-op="-" data-inc="10"><i class="fa fa-minus"></i><i class="fa fa-minus"></i></button>
         </div>
 
         <!-- a row for the result container -->
