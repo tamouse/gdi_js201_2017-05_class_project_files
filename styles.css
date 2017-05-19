@@ -1,11 +1,23 @@
 /* some modifications by tamouse@gmail.com */
 
+* { box-sizing: border-box; }
+
 /* Set up the outer part to hold a flex column */
 html, body {
-    height: 100%;
     font-family: sans-serif;
     width: 80%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100%;
+}
+
+section {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 50px;
 }
 
 
@@ -14,36 +26,30 @@ html, body {
 .hide {display: none !important; }
 .show {display: auto; }
 
-/* this creates a flex column. it will stretch to fill the entire height */
-.counter {
-    font-size: 100pt;
-    min-height; 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-.counter > div {
-    flex: 1;
-}
+
 
 /* each row of the display. in this case, a row for counter buttons, and a row
    for the results. */
 .row {
-    width: 100%;
-    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-/* open up the style for the buttons, not much changed here, specify the height */
+.counter {
+    font-size: 100pt;
+    text-align: center;
+}
+
 .button {
-    background-color:#2a4758;
-    color:#fff;
-    font-size:40pt;
-    width:120px;
+    background-color: DarkSlateGray;
+    color: #fff;
+    font-size: 40pt;
+    width: 120px;
     height: 120px;
-    outline:0;
-    border:0;
+    outline: 0;
+    border: 0;
     border-radius: 10px;
-    padding-bottom:20px;
     -webkit-transition: all 0.1s;
     -moz-transition: all 0.1s;
     -ms-transition: all 0.1s;
@@ -60,17 +66,18 @@ html, body {
 }
 
 /* make a space to hold the result */
-.result {
-    width: 200px;
+.result-box {
     height: 200px;
     margin: auto;
-    padding: 0.2rem
+    line-height: 1.5;
     border-radius: 10px;
-    background-color: green;
+    background-color: darkgreen;
     border-color: darkgreen;
     text-align:center;
     font-family: monospace;
     color: AliceBlue;
+}
+.result {
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
@@ -80,7 +87,7 @@ html, body {
 
 /* this did not need the extra qualifier */
 .changing {
-    color:#f95a61;
+    color: tomato;
     transform: scale(1.2);
 }
 
@@ -90,12 +97,15 @@ html, body {
     color: paleVioletRed;
 }
 
+.people-section {
+    background-color: SteelBlue;
+    color: ivory;
+}
+
 .big-text {
     font-size: 100pt;
 }
 
-.people-section {
-    background-color: seagreen;
-    color: ivory;
-    padding: 1rem;
+.interests-section:hover {
+    background-color: LightSteelBlue;
 }

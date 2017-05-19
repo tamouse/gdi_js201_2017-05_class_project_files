@@ -3,17 +3,20 @@
     <head>
         <!-- add in the viewport to make it look good when shrunk -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>GDI - Intermediate JS</title>
-        <link rel="stylesheet" href="counter.css">
+        <title>Tamara's GDI JS201 Project</title>
+        <link rel="stylesheet" href="styles.css">
         <script src="https://use.fontawesome.com/90a31ec13c.js"></script>
     </head>
     <body>
 
-        <div class="counter">
+        <section class="counter" data-bounce="150">
             <!-- a row for the counter buttons -->
             <div class="row">
-                <button class="button" data-op="+"
-                        data-inc="10">
+                <!--
+                    see counter.js to see what I'm doing with these
+                    data-* attributes. :)
+                -->
+                <button class="button" data-op="+" data-inc="10">
                     <i class="fa fa-plus"></i>
                     <i class="fa fa-plus"></i>
                 </button>
@@ -22,7 +25,7 @@
                     <i class="fa fa-plus"></i>
                 </button>
                 <!-- a reset button to clear the counter quickly -->
-                <button class="button" data-op="*" data-inc="0">
+                <button class="button" data-op="R" data-inc="0">
                     <i class="fa fa-ban"></i>
                 </button>
                 <button class="button" data-op="-" data-inc="1">
@@ -36,18 +39,22 @@
 
             <!-- a row for the result container -->
             <div class="row">
-                <div class="result" rel="result"></div>
+                <div class="result-box">
+                    <div class="result" rel="result"></div>
+                </div>
             </div>
+        </section> <!-- .counter -->
 
-        </div>
-        <div class="row">
-            <div class="age">
-                <h1>My age is <span class="time" data-rel="1957-10-12"></span></h1>
+
+        <section class="age">
+            <div class="row">
+                <h1>Today is the <span rel="today-is"></span></h1>
+                <h1>My age is <span rel="age" data-dob="1957-10-12"></span></h1>
             </div>
-        </div>
+        </section> <!-- .age -->
 
-        <div class="row left-align">
-            <div id="people" class="people-section">
+        <section id="people" class="people-section">
+            <div class="">
                 <div id="person-01">
                     <span class="first-name">Tamara</span>
                     <span class="last-name">Temple</span>
@@ -70,12 +77,12 @@
                 </div>
 
             </div>
-        </div>
+        </section> <!-- #people -->
 
         <!-- scripts -->
         <script src="lib/jquery.min.js"></script>
         <script src="lib/moment.min.js"></script>
-        <script src="scripts.js"></script>
+        <script src="counter.js"></script>
         <script src="working_with_moment.js"></script>
         <script src="people.js"></script>
     </body>
