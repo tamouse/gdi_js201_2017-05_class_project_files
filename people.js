@@ -1,46 +1,43 @@
 // JavaScript for the people block
 
+function handleFirstNameClick(e) {
+  // This prevents the event from bubbling up, which might cause more
+  // things to trigger, dependimg on layering.
+  e.stopPropagation();
+
+  // This toggles the .bit-text class (adds it if isn't there, removes it if it is)
+  $( this ).toggleClass('big-text');
+};
+
+function handleInterestClick(e) {
+  // Like above, we don't want clicks bubbling up unintentionally
+  e.stopPropagation();
+
+  // In this instance, the currently clicked element is a heading,
+  // and we want it's sibling unordered list
+  $( this )
+    .find(' ~ .interests')
+    .slideToggle(); // slides the list up (hiding it) or down (showing it)
+};
+
 // This is the equivalent of waiting for the document to be fully loaded
 // in the plain old JS files (counter.js, working_with_moment.js)
-$(document).ready(
-  function() {
+$(document).ready(function() {
 
-    // Grabbing the first name fields (all of them), and assign a click handler
-    // The click handler will toggle the .big-text class on the element.
-    $('#people .first-name')
-      .addClass('big-text') // Initialize the element with the .big-text class.
-      // chain the next function on the selected element
-      .on('click', function(e) {
-      // This prevents the event from bubbling up, which might cause more
-      // things to trigger, dependimg on layering.
-      e.stopPropagation();
+  // Grabbing the first name fields (all of them), assign a click
+  // handler, and initializing the text.
+  $('#people .first-name')
+    .on('click', handleFirstNameClick)
+    .addClass('big-text')
+  ;
 
-      // This toggles the .bit-text class (adds it if isn't there, removes it if it is)
-      $( this )
-        .toggleClass('big-text');
-      })
-    ;
-
-
-
-    // Add a click handler to the interests heading
-    $('#people h3.interests-section')
-      .find(' ~ .interests').slideUp() // Initialize the list as slid up (hidden)
-      // chain the next function on the selected element
-      .on('click', function(e) {
-      // Like above, we don't want clicks bubbling up unintentionally
-      e.stopPropagation();
-
-      // In this instance, the currently clicked element is a heading,
-      // and we want it's sibling unordered list
-      $( this )
-        .find(' ~ .interests')
-        .slideToggle(); // slides the list up (hiding it) or down (showing it)
-      })
-    ;
-
-  }
-);
+  // Grabbing all the interest section headings, assigning the click
+  // handler, and sliding the interest lists up (hiding them).
+  $('#people h3.interests-section')
+    .on('click', handleInterestClick)
+    .find(' ~ .interests').slideUp()
+  ;
+});
 
 
 /*
