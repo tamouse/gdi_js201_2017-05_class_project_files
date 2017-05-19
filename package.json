@@ -11,6 +11,6 @@
     "package.json": "^2.0.1"
   },
   "scripts": {
-    "start": "browser-sync start --server . --port 8888 --files counter.css index.html scripts.js"
+    "start": "browser-sync start --server . --port 8888 --files index.html *.js *.css"
   }
 }

@@ -1,47 +1,52 @@
-const Counter = (function(d, bounceTime){
+document.addEventListener('ready', function() {
 
-  function result(){
-    return d.querySelector('[rel=result]');
-  }
+    (function(d, bounceTime){
 
-  function operate(evt) {
-    var operator = this.getAttribute('data-op');
-    var increment = this.getAttribute('data-inc');
-    changeResult(operator, increment);
-  }
+      function result(){
+        return d.querySelector('[rel=result]');
+      }
 
-  // Add the changing class, then take it away after a moment
-  function bounceResult() {
-    result().classList.add('changing');
-    setTimeout(function(){ result().classList.remove('changing'); }, bounceTime);
-  }
+      function operate(evt) {
+        var operator = this.getAttribute('data-op');
+        var increment = this.getAttribute('data-inc');
+        changeResult(operator, increment);
+      }
 
-  // clear the result display
-  function clearResults(){
-    bounceResult();
-    result().innerHTML = '';
-  }
+      // Add the changing class, then take it away after a moment
+      function bounceResult() {
+        result().classList.add('changing');
+        setTimeout(function(){ result().classList.remove('changing'); }, bounceTime);
+      }
 
-  // change the result by the value passed in
-  function changeResult(op, inc){
-    bounceResult();
+      // clear the result display
+      function clearResults(){
+        bounceResult();
+        result().innerHTML = '';
+      }
 
-    var oldResult = result().textContent*1;
+      // change the result by the value passed in
+      function changeResult(op, inc){
+        bounceResult();
 
-    var newResult = (op === '*') ?
-        oldResult * inc :
-        (oldResult + parseInt(`${op}${inc}`));
+        var oldResult = result().textContent*1;
 
-    result().textContent = newResult;
-  }
+        var newResult = (op === '*') ?
+          oldResult * inc :
+          (oldResult + parseInt(`${op}${inc}`));
 
-  // Add the operate event handler to all the buttons
-  // Using querySelectorAll so we have the forEach method
-  d.querySelectorAll('[data-op]')
-    .forEach(function(el){
-      el.addEventListener('click', operate);
-    });
+        result().textContent = newResult;
+      }
 
-  return {};
+      // Add the operate event handler to all the buttons
+      // Using querySelectorAll so we have the forEach method
+      d.querySelectorAll('[data-op]')
+        .forEach(function(el){
+          el.addEventListener('click', operate);
+        });
 
-})(document, 300);
+      return {};
+
+    })(document, 300);
+
+  }()
+)

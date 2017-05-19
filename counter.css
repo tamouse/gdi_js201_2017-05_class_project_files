@@ -3,19 +3,24 @@
 /* Set up the outer part to hold a flex column */
 html, body {
     height: 100%;
-    font-size: 100pt;
     font-family: sans-serif;
     width: 80%;
     margin: auto;
 }
 
+
 /* go with classes instead of id's for styling */
+
+.hide {display: none !important; }
+.show {display: auto; }
 
 /* this creates a flex column. it will stretch to fill the entire height */
 .counter {
+    font-size: 100pt;
     min-height; 100%;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 .counter > div {
     flex: 1;
@@ -24,8 +29,8 @@ html, body {
 /* each row of the display. in this case, a row for counter buttons, and a row
    for the results. */
 .row {
-    text-align: center;
     width: 100%;
+    margin: 10px 0;
 }
 
 /* open up the style for the buttons, not much changed here, specify the height */
@@ -59,10 +64,13 @@ html, body {
     width: 200px;
     height: 200px;
     margin: auto;
+    padding: 0.2rem
     border-radius: 10px;
     background-color: green;
     border-color: darkgreen;
     text-align:center;
+    font-family: monospace;
+    color: AliceBlue;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
@@ -74,4 +82,20 @@ html, body {
 .changing {
     color:#f95a61;
     transform: scale(1.2);
+}
+
+.age {
+    text-align: center;
+    background-color: papayawhip;
+    color: paleVioletRed;
+}
+
+.big-text {
+    font-size: 100pt;
+}
+
+.people-section {
+    background-color: seagreen;
+    color: ivory;
+    padding: 1rem;
 }

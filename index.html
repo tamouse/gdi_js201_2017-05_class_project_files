@@ -7,23 +7,76 @@
         <link rel="stylesheet" href="counter.css">
         <script src="https://use.fontawesome.com/90a31ec13c.js"></script>
     </head>
-    <body class="counter"> <!-- this could be a wrapper, but there's
-                                nothing elese on the page  -->
+    <body>
 
-        <!-- a row for the counter buttons -->
+        <div class="counter">
+            <!-- a row for the counter buttons -->
+            <div class="row">
+                <button class="button" data-op="+"
+                        data-inc="10">
+                    <i class="fa fa-plus"></i>
+                    <i class="fa fa-plus"></i>
+                </button>
+
+                <button class="button" data-op="+" data-inc="1">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <!-- a reset button to clear the counter quickly -->
+                <button class="button" data-op="*" data-inc="0">
+                    <i class="fa fa-ban"></i>
+                </button>
+                <button class="button" data-op="-" data-inc="1">
+                    <i class="fa fa-minus"></i>
+                </button>
+                <button class="button" data-op="-" data-inc="10">
+                    <i class="fa fa-minus"></i>
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+
+            <!-- a row for the result container -->
+            <div class="row">
+                <div class="result" rel="result"></div>
+            </div>
+
+        </div>
         <div class="row">
-            <button class="button" data-op="+" data-inc="10"><i class="fa fa-plus"></i><i class="fa fa-plus"></i></button>
-            <button class="button" data-op="+" data-inc="1"><i class="fa fa-plus"></i></button>
-            <!-- a reset button to clear the counter quickly -->
-            <button class="button" data-op="*" data-inc="0"><i class="fa fa-ban"></i></button>
-            <button class="button" data-op="-" data-inc="1"><i class="fa fa-minus"></i></button>
-            <button class="button" data-op="-" data-inc="10"><i class="fa fa-minus"></i><i class="fa fa-minus"></i></button>
+            <div class="age">
+                <h1>My age is <span class="time" data-rel="1957-10-12"></span></h1>
+            </div>
         </div>
 
-        <!-- a row for the result container -->
-        <div class="row">
-            <div class="result" rel="result"></div>
+        <div class="row left-align">
+            <div id="people" class="people-section">
+                <div id="person-01">
+                    <span class="first-name">Tamara</span>
+                    <span class="last-name">Temple</span>
+                    <h3 class="interests-section">Interests</h3>
+                    <ul class="interests">
+                        <li>Watercolours</li>
+                        <li>Software Engineering</li>
+                        <li>EDM</li>
+                    </ul>
+                </div>
+                <div id="person-02">
+                    <span class="first-name">Quinne</span>
+                    <span class="last-name">Oranche</span>
+                    <h3 class="interests-section">Interests</h3>
+                    <ul class="interests">
+                        <li>Photography</li>
+                        <li>Basket Weaving</li>
+                        <li>Disco</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
+
+        <!-- scripts -->
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/moment.min.js"></script>
         <script src="scripts.js"></script>
+        <script src="working_with_moment.js"></script>
+        <script src="people.js"></script>
     </body>
 </html>
